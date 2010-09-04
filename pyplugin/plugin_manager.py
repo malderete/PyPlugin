@@ -4,6 +4,8 @@ import os
 import sys
 import imp
 from pyplugin import importer
+from pyplugin import utils
+
 
 
 
@@ -16,13 +18,14 @@ class PyBasePluginManager(object):
     '''
     
     def __init__(self, plugin_dirs, services, auto_init=False,
-                importer=importer.factory):
+                importer=importer.factory, proxy_factory=utils.proxy_factory)
         '''
         @param plugin_dirs: A list with paths to search plugins.
         @param services: A ServicePack object.
         @param auto_init: A boolean to auto load or nor plugins.
         @param importer: A callable object who know how to instanciate a plugin.
-        '''	
+        '''
+        self.proxy_factory = proxy_factory
         #plugin importer method
         self.importer = importer
         self.services = services
@@ -132,12 +135,14 @@ class PyBasePluginManager(object):
 
     def attach_services(self, plugin_object):
         '''
-        Attach the service pack to an instance.
+        Attach a service pack's Proxy to 
+	an instance.
 
         @param plugin_object: A plugin instance.
         '''
-        for service in self.services:
-            setattr(plugin_object, service.get_name(), service.get_func())
+	plugin_object.service = self.proxy_factory(self.service)
+        #for service in self.services:
+        #    setattr(plugin_object, service.get_name(), service.get_func())
 
 
     def load(self, plugin_name):
@@ -191,10 +196,10 @@ class PyPluginManager(PyBasePluginManager):
     see the documentation for further information.
     '''
     def __init__(self, dirs, services, auto_init=False,
-            importer=importer.factory):
+            importer=None, proxy_factory=None):
         #call parent's __init__
-        super(PyPluginManager, self).__init__(dirs, services,
-                auto_init=auto_init, importer=importer)
+        super(PyPluginManager, self).__init__(dirs, services, auto_init=auto_init,\
+		importer=importer, proxy_factory=proxy_factory)
         
     def discover(self):
         '''
@@ -243,43 +248,4 @@ class PyPluginManager(PyBasePluginManager):
         for plugin_name in self.found_plugins:
             self.unload(plugin_name)
 
-class Service(object):
-    def __init__(self, name, func,  extra=None):
-        self.name = name
-        self.func = func
-        self.extra = extra
 
-    def get_name(self):
-        return self.name
-
-    def get_func(self):
-        return self.func
-    
-    def get_extra(self):
-        return self.extra
-
-
-if __name__ == "__main__":
-    def greet():
-        print "SALUDANDO DESDE EL PLUGIN"
-
-    dirs = ["/home/tincho/pyPlugin_plugins", "/home/tincho/extra_home"]
-    services = [Service('greet', greet)]
-    
-    pm = PyPluginManager(dirs, services)
-    print "Discovering plugins..."
-    pm.discover()
-    print "Found %s plugins" % len(pm)
-    print "Checkin if the 'a' plugin is in: %s" % ('a' in pm)
-    print "The found plugins are: "
-    for plugin_name in pm:
-        print plugin_name
-
-    print "load.."
-    pm.load("a")
-    print "is ( a ) active: %s" % pm.is_plugin_active("a")
-
-    for p in pm.get_actives_plugins():
-        p.greet()
-
-    print pm["a"]
