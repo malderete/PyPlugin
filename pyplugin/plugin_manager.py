@@ -103,7 +103,8 @@ class PyBasePluginManager(object):
         '''
         Return a list of plugin's files.
         '''
-        return [ f[:-3] for f in os.listdir(dir_name) if self.is_valid_plugin_name(f) ]
+        return [ f[:-3] for f in os.listdir(dir_name) \
+		if self.is_valid_plugin_name(f) ]
 
     def is_plugin_active(self, plugin_name):
         '''
@@ -190,7 +191,7 @@ class PyPluginManager(PyBasePluginManager):
     see the documentation for further information.
     '''
     def __init__(self, dirs, services, auto_init=False,
-            importer=factory):
+            importer=importer.factory):
         #call parent's __init__
         super(PyPluginManager, self).__init__(dirs, services,
                 auto_init=auto_init, importer=importer)
@@ -203,8 +204,9 @@ class PyPluginManager(PyBasePluginManager):
         for dir_name in self.plugins_by_dir:
             for file_name in self.list_plugin(dir_name):
                 plugin_name = self.get_plugin_name(file_name)
-                self.found_plugins.append(plugin_name)
-                self.plugins_by_dir[dir_name].append(plugin_name)
+                if not plugin_name in self.found_plugins:
+                    self.found_plugins.append(plugin_name)
+                    self.plugins_by_dir[dir_name].append(plugin_name)
 
     def is_valid_plugin_name(self, plugin_name):
         return plugin_name.endswith(".py") and plugin_name != "__init__.py"

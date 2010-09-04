@@ -1,22 +1,23 @@
-import pyplugin
+from pyplugin.plugin_manager import PyPluginManager
 
-dirs_to_scan = ("/home/tincho/",  "/home/colo/")
-plugin_manager = PyPluginManager(dirs_to_scan,  auto_init=False)
+dirs_to_scan = ("/home/tincho/",)
+services = []
+plugin_manager = PyPluginManager(dirs_to_scan, services)
 #discover plugins
 plugin_manager.discover()
 #list the plugins
 for plugin_name in plugin_manager:
-	print plugin_name
+	print "Plugin: %s" % plugin_name
 
 #ask for a plugin
-my_plugin ='pyplugintest' in plugin_manager
+my_plugin = 'pyplugintest' in plugin_manager
 if my_plugin:
 	print plugin_manager["pyplugintest"]
 	#Get the plugin Info
 	print plugin_manager.get_plugin_info("pyplugintest")
 	print my_plugin.get_info()
 else:
-	print "El plugin ( %s ) no fue encontrado." % pyplugintest
+	print "El plugin ( %s ) no fue encontrado." % 'pyplugintest'
 
 if my_plugin:
 	print my_plugin.is_active()
@@ -29,16 +30,6 @@ plugin_manager.discover()
 
 #list the plugins again
 for plugin_name in plugin_manager:
-	print plugin_name
-
-
-#activate all the plugins
-for plugin_name in plugin_manager:
-	plugin_manager.activate(plugin_name)
-
-#shutdown all the plugins
-for plugin_name in plugin_manager:
-	plugin_manager.shutdown(plugin_name)
-
+	print "Plugin: %s" % plugin_name
 
 
