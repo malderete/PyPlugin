@@ -1,23 +1,31 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+
+
+def proxy_factory(instance):
+    '''
+    Generic Proxy factory,
+    using this factory you are
+    programming with Dependency Injection
+    on mind.
+    '''	
+    return Proxy(instance)
+
 
 class Proxy(object):
-	def __init__(self, subject):
-		self.__subject = subject
-	
-	def __getattr__(self, attr_name):
-		proxy_method = getattr(self.__subject, attr_name)
-		return proxy_method 
+    '''
+    Proxy class to contain any kind
+    of instance. Every instance of this
+    class receives a method and redirect
+    it to another instance.
+    '''
+    def __init__(self, instance):
+        self.__instance = instance
+    
+    def __getattr__(self, name):
+        def wrapper(*args, **kwds):
+            #get the proxy method and call it!
+            method = getattr(self.__instance, name)
+            return method(*args, **kwds)
 
+        return wrapper
 
-class Factory(object):
-	def build_proxy(self, instance):
-		return Proxy(instance)
-
-class A(object):
-	def say(self, msg):
-		return "Hello %s" % msg
-
-
-if __name__ == "__main__":
-	obj = Factory().build_proxy(A())
-	print obj.say("Martin")
