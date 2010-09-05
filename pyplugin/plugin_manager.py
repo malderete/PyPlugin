@@ -1,33 +1,54 @@
-# -*- coding: utf-8 -*-
+'''
+plugin_manager.py
+
+Copyright 2010 Martin Alderete
+
+This file is part of pyPlugin, http://github.com/malderete/PyPlugin.
+
+pyPlugin is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation version 2 of the License.
+
+pyPlugin is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with pyPlugin; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+<<END_LICENSE>>
+'''
 
 import os
 import sys
 import imp
-from pyplugin import importer
-from pyplugin import utils
 
+from pyplugin import loader
 
 
 
 class PyBasePluginManager(object):
     '''
     Base class (abstract)
-    subbclass MUST override some methods
+    subbclass MUST ovewrite some methods
     to work correctly if not NotImplemented
     will be raised.
+    
+    @author: Martin Alderete ( malderete@gmail.com )
     '''
     
     def __init__(self, plugin_dirs, services, auto_init=False,
-                importer=importer.factory, proxy_factory=utils.proxy_factory)
+                loader=loader.factory):
         '''
-        @param plugin_dirs: A list with paths to search plugins.
-        @param services: A ServicePack object.
-        @param auto_init: A boolean to auto load or nor plugins.
-        @param importer: A callable object who know how to instanciate a plugin.
+        @param plugin_dirs: list or tuple  with paths to search plugins.
+        @param services: ServiceCollection object.
+        @param auto_init: boolean to auto load or nor plugins.
+        @param loader: callable object who know how to instanciate a plugin.
         '''
-        self.proxy_factory = proxy_factory
         #plugin importer method
-        self.importer = importer
+        self.instance_loader = loader
         self.services = services
         #discovered plugins by directory
         self.plugins_by_dir = {}
@@ -40,6 +61,8 @@ class PyBasePluginManager(object):
         #active plugins
         #example: {"logger": LoggerIntance, "my_plugin": MyPluginInstance}
         self.active_plugins = {}
+	if auto_init:
+            self.discover()
 
     def get_actives_plugins(self):
         '''
@@ -50,6 +73,8 @@ class PyBasePluginManager(object):
     def add_plugin_dir(self, plugin_dir):
         '''
         Add a new directory to search plugins.
+
+	@param plugin_dir: absolute path.
         '''
         if not plugin_dir in self.plugins_by_dir:
             self.plugins_by_dir[plugin_dir] = []
@@ -58,6 +83,22 @@ class PyBasePluginManager(object):
             sys.path.insert(0, plugin_dir)
 
     def __getitem__(self, plugin_name):
+	'''
+ 	Magic method to get a plugin instance 
+	from a given name.
+	
+	@Note: This method has the logic below.
+	Check if the plugin is known,
+	if it is active return it,
+	otherwise, active it and return it.
+	It is exception safe, if the plugin
+	is not known return None.
+	
+	@param plugin_name: plugin name.
+
+	@return: Plugin instance or None
+	
+	'''
         if plugin_name in self.found_plugins:
             if not plugin_name in self.active_plugins:
                 self.load(plugin_name)
@@ -67,44 +108,69 @@ class PyBasePluginManager(object):
 
     def __contains__(self, plugin_name):
         '''
-        Return whether the PluginManager contains
+        Magic method to know whether the 
+	PluginManager contains
         a plugin with a given name.
+
+	@param plugin_name: plugin name.
+
+	@return: True or False.
         '''
         return plugin_name in self.found_plugins
 
     def __iter__(self):
         '''
-        Iterate over the names of all plugins
+        Magic method to iterate over all
+	the plugin's names.
+	
+	@return: iterator.
         '''
         return iter(self.found_plugins)
 
     def __len__(self):
         '''
-        Return the number of plugins
+        Magic method to know the plugins
+	quantity.
+	
+	@return: length.
+
         '''
         return len(self.found_plugins)
 
     def get_plugin_name(self, file_name):
         '''
-        Get the plugin's name from a file name
+        Get the plugin's name from a file name.
+	
+	@param file_name: A file object name.
+	
+	@return: A plugin name from a file.
         '''
         plugin_file_name, file_ext = os.path.splitext(file_name)
         return plugin_file_name
 
     def is_valid_plugin_name(self, plugin_name):
         '''
-        Return True or False depends on
-        if the file plugin_name is or not
-        a valid plugin name
+        Check if the file plugin_name 
+	is or not a valid plugin name.
 
-        @Note: Subclass MUST re-implement this to
-        make another checks.
+        @Note: Subclass MUST implement it
+	to make behavior.
+	
+	@param plugin_name: A plugin name.
+	
+	@return: True or False.
         '''
         raise NotImplemented
 
     def list_plugin(self, dir_name):
         '''
-        Return a list of plugin's files.
+        Crawl a directory and collect plugins.
+	
+	@Note: This method colaborate with
+	is_valid_plugin_name to decide which
+	files are valids plugin.
+
+	@return: List with plugin names.
         '''
         return [ f[:-3] for f in os.listdir(dir_name) \
 		if self.is_valid_plugin_name(f) ]
@@ -113,14 +179,21 @@ class PyBasePluginManager(object):
         '''
         Check if a plugin is or not active
 
+	@param plugin_name: Plugin name to check.
+
         @return: True or False
         '''
         return plugin_name in self.active_plugins
 
     def import_module(self, plugin_name, path_to_file):
         '''
-        Get a module from his name.
-        This method should not be override.
+        Get and instanciate a module from his name.
+        This method SHOULD NOT be overwritten.
+	
+	@param plugin_name: A plugin name (file name).
+	@param path_to_file: Absolute path to the plugin.
+	
+	@return: module object.
         '''
         path_to_file = "%s.py" % os.path.join(path_to_file, plugin_name)
         module_obj = imp.load_source(plugin_name, path_to_file)
@@ -133,17 +206,19 @@ class PyBasePluginManager(object):
         '''
         raise NotImplemented
 
-    def attach_services(self, plugin_object):
+    def attach_services(self, plugin_obj):
         '''
-        Attach a service pack's Proxy to 
-	an instance.
+        Attach the shared services to a 
+	plugin's instance.
+	
+	@Note: Services are the way to share
+	objects and functions between the app
+	and the plugins.
 
-        @param plugin_object: A plugin instance.
+        @param plugin_obj: A plugin instance.
         '''
-	plugin_object.service = self.proxy_factory(self.service)
-        #for service in self.services:
-        #    setattr(plugin_object, service.get_name(), service.get_func())
-
+	for name, service in self.services:
+                setattr(plugin_obj, name, service)
 
     def load(self, plugin_name):
         '''
@@ -162,16 +237,16 @@ class PyBasePluginManager(object):
     def unload(self, plugin_name):
         '''
         This method remove the plugin
-                from active_plugins and delete
-        the instance
+        from active_plugins and delete
+        the instance.
         '''
         raise NotImplemented
 
     def unload_all(self):
         '''
         This method remove ALL the plugin
-                from active_plugins and delete
-                the instances
+        from active_plugins and delete
+        the instances.
         '''
         raise NotImplemented
 
@@ -180,26 +255,17 @@ class PyBasePluginManager(object):
 class PyPluginManager(PyBasePluginManager):
     '''
     PyPluginManager implementation
-    This is a concrete plugin manager
-    for almost all the projects is a
-    good manager, if it is not you
-    should re-implement some methods
-    from "PyBasePluginManager":
+    This is a concrete plugin manager.
+    This class should be a good plugin manager
+    for almost all the projects.
+    If you need overwrite you COULD.
     
-    is_valid_plugin_name(self, plugin_name)
-    discover(self)
-    load(self, plugin_name)
-    load_all(self)
-    unload(self, plugin_name)
-    unload_all(self)
-
-    see the documentation for further information.
+    @author: Martin Alderete ( malderete@gmail.com )
     '''
-    def __init__(self, dirs, services, auto_init=False,
-            importer=None, proxy_factory=None):
+    def __init__(self, dirs, services, auto_init=False, loader=loader.factory):
         #call parent's __init__
         super(PyPluginManager, self).__init__(dirs, services, auto_init=auto_init,\
-		importer=importer, proxy_factory=proxy_factory)
+		loader=loader)
         
     def discover(self):
         '''
@@ -222,8 +288,7 @@ class PyPluginManager(PyBasePluginManager):
                 #get the module
                 module_obj = self.import_module(plugin_name, dir_name)
                 #get the instance
-                plugin_obj = self.importer(module_obj, plugin_name,
-                                           self.services)
+                plugin_obj = self.instance_loader(module_obj, plugin_name)
                 #attach the services
                 self.attach_services(plugin_obj)
                 #call a special method init in the plugin!

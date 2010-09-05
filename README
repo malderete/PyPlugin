@@ -49,8 +49,21 @@ The documentation is in the source, so you should check in the "doc" directory.
 Developer *remember* run the tool for create documentation *before* commit changes.
 
 
+Installation
+============
+
+Untar the packages(if you have already downloaded it!), otherwise install from GIT repository.
+  
+  $ cd PyPlugin
+  $ sudo python setup.py install
+
+Check if the installation was ok.
+  $ python
+  $ import pyplugin
+
+
 Get involve
-==========
+===========
 
 If you want to contribute, do not doubt on contact me for information about the soruce code.	
 *Please* always keep in mind "Test driven development" and "Dependency injection", to produce a  better and more testeable source code.
