@@ -56,3 +56,8 @@ class Proxy(object):
 
         return wrapper
 
+    def __repr__(self):
+	klass = self.__instance.__class__
+        return '<%s@%s in %s>' % (type(self).__name__, klass.__name__,\
+				   klass.__module__)
+

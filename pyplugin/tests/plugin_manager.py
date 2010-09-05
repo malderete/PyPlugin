@@ -49,7 +49,16 @@ class PyPluginManagerTestCase(unittest.TestCase):
 	pm.load('plugin_test')
 	self.assertEqual(len(pm), 1)
 	
-        
+    def test_proxy_service(self): 
+        pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
+	p = pm['plugin_test']
+	self.assertEqual('Proxy@' in repr(p.service), True)
+
+    def test_function_service(self):
+        pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
+	p = pm['plugin_test']
+        self.assertEqual('function' in repr(p.connect), True)
+	
 
 
 

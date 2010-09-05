@@ -51,9 +51,9 @@ class ServiceCollection(object):
 	@param name: service name.
 	@param service: instance or function to share.
 	'''
-        if isinstance(service, types.InstanceType):
+        if not type(service) is types.FunctionType:
             service = self.proxy_factory(service)
-        
+
         self.services[name] = service
 
     def remove(self, service_name):
