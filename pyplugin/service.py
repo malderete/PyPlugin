@@ -21,8 +21,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <<END_LICENSE>>
 '''
 
-
-import types
 from pyplugin import proxy
 
 
@@ -51,9 +49,7 @@ class ServiceCollection(object):
 	@param name: service name.
 	@param service: instance or function to share.
 	'''
-        if not type(service) is types.FunctionType:
-            service = self.proxy_factory(service)
-
+        service = self.proxy_factory(service)
         self.services[name] = service
 
     def remove(self, service_name):

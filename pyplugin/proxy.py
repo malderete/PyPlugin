@@ -21,6 +21,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <<END_LICENSE>>
 '''
 
+import types
+
+
 
 def proxy_factory(instance):
     '''
@@ -28,8 +31,27 @@ def proxy_factory(instance):
     using this factory you are
     programming with Dependency Injection
     on mind.
-    '''	
+
+    @param instance: instance to proxy.
+    '''
+    if type(instance) is types.FunctionType:
+        return proxy_function(instance)
+
     return Proxy(instance)
+
+
+def proxy_function(function_to_proxy):
+    '''
+    Proxy implementation, to proxy
+    functions object.
+    
+    @Note: It is functional implementation
+    of the proxy pattern.
+    '''
+    def wrapper(*args, **kwds):
+        return function_to_proxy(*args, **kwds)
+
+    return wrapper
 
 
 class Proxy(object):
