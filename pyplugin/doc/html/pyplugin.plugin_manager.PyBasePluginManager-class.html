@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pyplugin.plugin_manager.PyBasePluginManager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyplugin-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="pyplugin-module.html">Package&nbsp;pyplugin</a> ::
+        <a href="pyplugin.plugin_manager-module.html">Module&nbsp;plugin_manager</a> ::
+        Class&nbsp;PyBasePluginManager
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pyplugin.plugin_manager.PyBasePluginManager-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class PyBasePluginManager</h1><p class="nomargin-top"><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+object --+
+         |
+        <strong class="uidshort">PyBasePluginManager</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="pyplugin.plugin_manager.PyPluginManager-class.html">PyPluginManager</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Base class (abstract) subbclass MUST ovewrite some methods to work 
+  correctly if not NotImplemented will be raised.</p>
+
+<hr />
+<div class="fields">      <p><strong>Author:</strong>
+        Martin Alderete ( malderete@gmail.com )
+      </p>
+</div><!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_dirs</span>,
+        <span class="summary-sig-arg">services</span>,
+        <span class="summary-sig-arg">auto_init</span>=<span class="summary-sig-default">False</span>,
+        <span class="summary-sig-arg">loader</span>=<span class="summary-sig-default">&lt;function factory at 0xb75cb10c&gt;</span>)</span><br />
+      x.__init__(...) initializes x; see x.__class__.__doc__ for signature</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_actives_plugins"></a><span class="summary-sig-name">get_actives_plugins</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a list the instances</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.get_actives_plugins">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#add_plugin_dir" class="summary-sig-name">add_plugin_dir</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_dir</span>)</span><br />
+      Add a new directory to search plugins.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.add_plugin_dir">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      Magic method to get a plugin instance from a given name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__getitem__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__contains__" class="summary-sig-name">__contains__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      Magic method to know whether the PluginManager contains a plugin with
+      a given name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__contains__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__iter__" class="summary-sig-name">__iter__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Magic method to iterate over all the plugin's names.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__iter__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__len__" class="summary-sig-name">__len__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Magic method to know the plugins quantity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__len__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#get_plugin_name" class="summary-sig-name">get_plugin_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">file_name</span>)</span><br />
+      Get the plugin's name from a file name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.get_plugin_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#is_valid_plugin_name" class="summary-sig-name">is_valid_plugin_name</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      Check if the file plugin_name is or not a valid plugin name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.is_valid_plugin_name">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#list_plugin" class="summary-sig-name">list_plugin</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dir_name</span>)</span><br />
+      Crawl a directory and collect plugins.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.list_plugin">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#is_plugin_active" class="summary-sig-name">is_plugin_active</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      Check if a plugin is or not active</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.is_plugin_active">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#import_module" class="summary-sig-name">import_module</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>,
+        <span class="summary-sig-arg">path_to_file</span>)</span><br />
+      Get and instanciate a module from his name.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.import_module">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="discover"></a><span class="summary-sig-name">discover</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Search all files in a directory and get the valid plugin's names.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.discover">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="pyplugin.plugin_manager.PyBasePluginManager-class.html#attach_services" class="summary-sig-name">attach_services</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_obj</span>)</span><br />
+      Attach the shared services to a plugin's instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.attach_services">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="load"></a><span class="summary-sig-name">load</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      This method instanciate the plugin and add it to active_plugins</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.load">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="load_all"></a><span class="summary-sig-name">load_all</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method instanciate ALL the plugins in found_plugins</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.load_all">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="unload"></a><span class="summary-sig-name">unload</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">plugin_name</span>)</span><br />
+      This method remove the plugin from active_plugins and delete the 
+      instance.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.unload">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="unload_all"></a><span class="summary-sig-name">unload_all</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      This method remove ALL the plugin from active_plugins and delete the 
+      instances.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.unload_all">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__delattr__</code>,
+      <code>__format__</code>,
+      <code>__getattribute__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
+      <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__sizeof__</code>,
+      <code>__str__</code>,
+      <code>__subclasshook__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Properties</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Properties"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_dirs</span>,
+        <span class="sig-arg">services</span>,
+        <span class="sig-arg">auto_init</span>=<span class="sig-default">False</span>,
+        <span class="sig-arg">loader</span>=<span class="sig-default">&lt;function factory at 0xb75cb10c&gt;</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>x.__init__(...) initializes x; see x.__class__.__doc__ for 
+  signature</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_dirs</code></strong> - list or tuple  with paths to search plugins.</li>
+        <li><strong class="pname"><code>services</code></strong> - ServiceCollection object.</li>
+        <li><strong class="pname"><code>auto_init</code></strong> - boolean to auto load or nor plugins.</li>
+        <li><strong class="pname"><code>loader</code></strong> - callable object who know how to instanciate a plugin.</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_plugin_dir"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_plugin_dir</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_dir</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.add_plugin_dir">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Add a new directory to search plugins.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_dir</code></strong> - absolute path.</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_name</span>)</span>
+    <br /><em class="fname">(Indexing operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__getitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Magic method to get a plugin instance from a given name.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_name</code></strong> - plugin name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Plugin instance or None</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        This method has the logic below. Check if the plugin is known, if 
+        it is active return it, otherwise, active it and return it. It is 
+        exception safe, if the plugin is not known return None.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="__contains__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__contains__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_name</span>)</span>
+    <br /><em class="fname">(In operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__contains__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Magic method to know whether the PluginManager contains a plugin with 
+  a given name.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_name</code></strong> - plugin name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>True or False.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__iter__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__iter__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__iter__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Magic method to iterate over all the plugin's names.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>iterator.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__len__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__len__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Length operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.__len__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Magic method to know the plugins quantity.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>length.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_plugin_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_plugin_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">file_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.get_plugin_name">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the plugin's name from a file name.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>file_name</code></strong> - A file object name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>A plugin name from a file.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="is_valid_plugin_name"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_valid_plugin_name</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.is_valid_plugin_name">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check if the file plugin_name is or not a valid plugin name.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_name</code></strong> - A plugin name.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>True or False.</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        Subclass MUST implement it to make behavior.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="list_plugin"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">list_plugin</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dir_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.list_plugin">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Crawl a directory and collect plugins.</p>
+  <dl class="fields">
+    <dt>Returns:</dt>
+        <dd>List with plugin names.</dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        This method colaborate with is_valid_plugin_name to decide which 
+        files are valids plugin.
+      </p>
+</div></td></tr></table>
+</div>
+<a name="is_plugin_active"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">is_plugin_active</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.is_plugin_active">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check if a plugin is or not active</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_name</code></strong> - Plugin name to check.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>True or False</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="import_module"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">import_module</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_name</span>,
+        <span class="sig-arg">path_to_file</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.import_module">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get and instanciate a module from his name. This method SHOULD NOT be 
+  overwritten.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_name</code></strong> - A plugin name (file name).</li>
+        <li><strong class="pname"><code>path_to_file</code></strong> - Absolute path to the plugin.</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>module object.</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="attach_services"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">attach_services</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">plugin_obj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="pyplugin.plugin_manager-pysrc.html#PyBasePluginManager.attach_services">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Attach the shared services to a plugin's instance.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>plugin_obj</code></strong> - A plugin instance.</li>
+    </ul></dd>
+  </dl>
+<div class="fields">      <p><strong>Note:</strong>
+        Services are the way to share objects and functions between the app
+        and the plugins.
+      </p>
+</div></td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="pyplugin-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sun Sep  5 03:22:58 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
