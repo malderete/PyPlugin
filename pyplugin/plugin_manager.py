@@ -61,7 +61,7 @@ class PyBasePluginManager(object):
         #active plugins
         #example: {"logger": LoggerIntance, "my_plugin": MyPluginInstance}
         self.active_plugins = {}
-	if auto_init:
+        if auto_init:
             self.discover()
 
     def get_actives_plugins(self):
@@ -74,7 +74,7 @@ class PyBasePluginManager(object):
         '''
         Add a new directory to search plugins.
 
-	@param plugin_dir: absolute path.
+        @param plugin_dir: absolute path.
         '''
         if not plugin_dir in self.plugins_by_dir:
             self.plugins_by_dir[plugin_dir] = []
@@ -83,22 +83,22 @@ class PyBasePluginManager(object):
             sys.path.insert(0, plugin_dir)
 
     def __getitem__(self, plugin_name):
-	'''
- 	Magic method to get a plugin instance 
-	from a given name.
-	
-	@Note: This method has the logic below.
-	Check if the plugin is known,
-	if it is active return it,
-	otherwise, active it and return it.
-	It is exception safe, if the plugin
-	is not known return None.
-	
-	@param plugin_name: plugin name.
+        '''
+        Magic method to get a plugin instance 
+        from a given name.
+        
+        @Note: This method has the logic below.
+        Check if the plugin is known,
+        if it is active return it,
+        otherwise, active it and return it.
+        It is exception safe, if the plugin
+        is not known return None.
 
-	@return: Plugin instance or None
-	
-	'''
+        @param plugin_name: plugin name.
+
+        @return: Plugin instance or None
+        
+        '''
         if plugin_name in self.found_plugins:
             if not plugin_name in self.active_plugins:
                 self.load(plugin_name)
@@ -109,30 +109,30 @@ class PyBasePluginManager(object):
     def __contains__(self, plugin_name):
         '''
         Magic method to know whether the 
-	PluginManager contains
+        PluginManager contains
         a plugin with a given name.
 
-	@param plugin_name: plugin name.
+        @param plugin_name: plugin name.
 
-	@return: True or False.
+        @return: True or False.
         '''
         return plugin_name in self.found_plugins
 
     def __iter__(self):
         '''
         Magic method to iterate over all
-	the plugin's names.
-	
-	@return: iterator.
+        the plugin's names.
+
+        @return: iterator.
         '''
         return iter(self.found_plugins)
 
     def __len__(self):
         '''
         Magic method to know the plugins
-	quantity.
-	
-	@return: length.
+        quantity.
+        
+        @return: length.
 
         '''
         return len(self.found_plugins)
@@ -140,10 +140,10 @@ class PyBasePluginManager(object):
     def get_plugin_name(self, file_name):
         '''
         Get the plugin's name from a file name.
-	
-	@param file_name: A file object name.
-	
-	@return: A plugin name from a file.
+        
+        @param file_name: A file object name.
+        
+        @return: A plugin name from a file.
         '''
         plugin_file_name, file_ext = os.path.splitext(file_name)
         return plugin_file_name
@@ -151,35 +151,35 @@ class PyBasePluginManager(object):
     def is_valid_plugin_name(self, plugin_name):
         '''
         Check if the file plugin_name 
-	is or not a valid plugin name.
+        is or not a valid plugin name.
 
         @Note: Subclass MUST implement it
-	to make behavior.
-	
-	@param plugin_name: A plugin name.
-	
-	@return: True or False.
+        to make behavior.
+        
+        @param plugin_name: A plugin name.
+        
+        @return: True or False.
         '''
         raise NotImplemented
 
     def list_plugin(self, dir_name):
         '''
         Crawl a directory and collect plugins.
-	
-	@Note: This method colaborate with
-	is_valid_plugin_name to decide which
-	files are valids plugin.
-
-	@return: List with plugin names.
+        
+        @Note: This method colaborate with
+        is_valid_plugin_name to decide which
+        files are valids plugin.
+        
+        @return: List with plugin names.
         '''
         return [ f[:-3] for f in os.listdir(dir_name) \
-		if self.is_valid_plugin_name(f) ]
+                if self.is_valid_plugin_name(f) ]
 
     def is_plugin_active(self, plugin_name):
         '''
         Check if a plugin is or not active
 
-	@param plugin_name: Plugin name to check.
+        @param plugin_name: Plugin name to check.
 
         @return: True or False
         '''
@@ -189,11 +189,11 @@ class PyBasePluginManager(object):
         '''
         Get and instanciate a module from his name.
         This method SHOULD NOT be overwritten.
-	
-	@param plugin_name: A plugin name (file name).
-	@param path_to_file: Absolute path to the plugin.
-	
-	@return: module object.
+        
+        @param plugin_name: A plugin name (file name).
+        @param path_to_file: Absolute path to the plugin.
+        
+        @return: module object.
         '''
         path_to_file = "%s.py" % os.path.join(path_to_file, plugin_name)
         module_obj = imp.load_source(plugin_name, path_to_file)
@@ -209,15 +209,15 @@ class PyBasePluginManager(object):
     def attach_services(self, plugin_obj):
         '''
         Attach the shared services to a 
-	plugin's instance.
-	
-	@Note: Services are the way to share
-	objects and functions between the app
-	and the plugins.
+        plugin's instance.
+        
+        @Note: Services are the way to share
+        objects and functions between the app
+        and the plugins.
 
         @param plugin_obj: A plugin instance.
         '''
-	for name, service in self.services:
+        for name, service in self.services:
                 setattr(plugin_obj, name, service)
 
     def load(self, plugin_name):
@@ -265,7 +265,7 @@ class PyPluginManager(PyBasePluginManager):
     def __init__(self, dirs, services, auto_init=False, loader=loader.factory):
         #call parent's __init__
         super(PyPluginManager, self).__init__(dirs, services, auto_init=auto_init,\
-		loader=loader)
+                loader=loader)
         
     def discover(self):
         '''

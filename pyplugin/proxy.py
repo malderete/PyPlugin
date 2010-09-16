@@ -33,8 +33,10 @@ def proxy_factory(instance):
     on mind.
 
     @param instance: instance to proxy.
+    
+    @return: Proxy to instance
     '''
-    if type(instance) is types.FunctionType:
+    if isinstance(instance, types.FunctionType):
         return proxy_function(instance)
 
     return Proxy(instance)
@@ -47,6 +49,10 @@ def proxy_function(function_to_proxy):
     
     @Note: It is functional implementation
     of the proxy pattern.
+    
+    @param function_to_proxy: function to proxy.
+    
+    @return: Proxy to function.
     '''
     def wrapper(*args, **kwds):
         return function_to_proxy(*args, **kwds)
@@ -64,10 +70,10 @@ class Proxy(object):
     @author: Martin Alderete ( malderete@gmail.com )
     '''
     def __init__(self, instance):
-	'''
-	Proxy constructor.
-	@param instance: instance to be proxied.
-	'''
+        '''
+        Proxy constructor.
+        @param instance: instance to be proxied.
+        '''
         self.__instance = instance
     
     def __getattr__(self, name):
@@ -79,7 +85,13 @@ class Proxy(object):
         return wrapper
 
     def __repr__(self):
-	klass = self.__instance.__class__
+        '''
+        This method provides a representation
+        of a proxied object
+        
+        @Note: Usefull for development process.
+        '''
+        klass = self.__instance.__class__
         return '<%s@%s in %s>' % (type(self).__name__, klass.__name__,\
-				   klass.__module__)
+                                    klass.__module__)
 

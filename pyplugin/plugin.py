@@ -32,10 +32,10 @@ class PyBasePlugin(object):
         self.kwds = kwds
 
     def init(self, *args, **kwds):
-	'''
-	Every plugin HAVE to implemente
-	this method to initialize.
-	'''
+        '''
+        Every plugin HAVE to implemente
+        this method to initialize.
+        '''
         raise NotImplemented
 
     def get_name(self):

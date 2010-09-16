@@ -34,41 +34,41 @@ class ServiceCollection(object):
     @author: Martin Alderete ( malderete@gmail.com )
     '''
     def __init__(self, proxy_factory=proxy.proxy_factory):
-	'''
-	Class constructor.
+        '''
+        Class constructor.
 
-	@param proxy_factory: A function to Proxy objects(should not be ovewritten).
-	'''
+        @param proxy_factory: A function to Proxy objects(should not be ovewritten).
+        '''
         self.services = {}
         self.proxy_factory = proxy_factory
 
     def add(self, name, service):
-	'''
-	Add a service to the collection.
-	
-	@param name: service name.
-	@param service: instance or function to share.
-	'''
+        '''
+        Add a service to the collection.
+        
+        @param name: service name.
+        @param service: instance or function to share.
+        '''
         service = self.proxy_factory(service)
         self.services[name] = service
 
     def remove(self, service_name):
-	'''
-	Remove a service from collection.
-	
-	@Note: This method has to be called
-	before share the service with any plugin.
-	It is exception safe, before delete the service
-	chekc if the service is in the collection.
-	'''
+        '''
+        Remove a service from collection.
+
+        @Note: This method has to be called
+        before share the service with any plugin.
+        It is exception safe, before delete the service
+        chekc if the service is in the collection.
+        '''
         if service_name in self.services:
             del self.services[service_name]
 
     def __iter__(self):
-	'''
-	Magic method to allow iteration
-	over the services.
-	'''
+        '''
+        Magic method to allow iteration
+        over the services.
+        '''
         return self.services.iteritems()
 
 

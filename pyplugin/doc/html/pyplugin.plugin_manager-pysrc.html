@@ -119,10 +119,10 @@
 <a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-comment">#active plugins</tt> </tt>
 <a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-comment">#example: {"logger": LoggerIntance, "my_plugin": MyPluginInstance}</tt> </tt>
 <a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">active_plugins</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
-</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">auto_init</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">auto_init</tt><tt class="py-op">:</tt> </tt>
 <a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method pyplugin.plugin_manager.PyBasePluginManager.discover()=pyplugin.plugin_manager.PyBasePluginManager-class.html#discover,Method pyplugin.plugin_manager.PyPluginManager.discover()=pyplugin.plugin_manager.PyPluginManager-class.html#discover"><a title="pyplugin.plugin_manager.PyBasePluginManager.discover
 pyplugin.plugin_manager.PyPluginManager.discover" class="py-name" href="#" onclick="return doclink('link-6', 'discover', 'link-6');">discover</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
-<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+</div><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.get_actives_plugins"></a><div id="PyBasePluginManager.get_actives_plugins-def"><a name="L67"></a><tt class="py-lineno"> 67</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.get_actives_plugins-toggle" onclick="return toggle('PyBasePluginManager.get_actives_plugins');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#get_actives_plugins">get_actives_plugins</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.get_actives_plugins-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.get_actives_plugins-expanded"><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">        Return a list the instances</tt> </tt>
@@ -133,7 +133,7 @@ pyplugin.plugin_manager.PyPluginManager.discover" class="py-name" href="#" oncli
 </div><div id="PyBasePluginManager.add_plugin_dir-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.add_plugin_dir-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">        Add a new directory to search plugins.</tt> </tt>
 <a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    @param plugin_dir: absolute path.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_dir: absolute path.</tt> </tt>
 <a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">plugin_dir</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">plugins_by_dir</tt><tt class="py-op">:</tt> </tt>
 <a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">plugins_by_dir</tt><tt class="py-op">[</tt><tt class="py-name">plugin_dir</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
@@ -142,22 +142,22 @@ pyplugin.plugin_manager.PyPluginManager.discover" class="py-name" href="#" oncli
 <a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">insert</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">plugin_dir</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.__getitem__"></a><div id="PyBasePluginManager.__getitem__-def"><a name="L85"></a><tt class="py-lineno"> 85</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.__getitem__-toggle" onclick="return toggle('PyBasePluginManager.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="PyBasePluginManager.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.__getitem__-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-string">'''</tt> </tt>
-<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-string">    Magic method to get a plugin instance </tt> </tt>
-<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-string">    from a given name.</tt> </tt>
-<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-string">    </tt> </tt>
-<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-string">    @Note: This method has the logic below.</tt> </tt>
-<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-string">    Check if the plugin is known,</tt> </tt>
-<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-string">    if it is active return it,</tt> </tt>
-<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-string">    otherwise, active it and return it.</tt> </tt>
-<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-string">    It is exception safe, if the plugin</tt> </tt>
-<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-string">    is not known return None.</tt> </tt>
-<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-string">    </tt> </tt>
-<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-string">    @param plugin_name: plugin name.</tt> </tt>
-<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-string"></tt> </tt>
-<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-string">    @return: Plugin instance or None</tt> </tt>
-<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-string">    </tt> </tt>
-<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-string">    '''</tt> </tt>
+</div><div id="PyBasePluginManager.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.__getitem__-expanded"><a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">        Magic method to get a plugin instance </tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">        from a given name.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">        @Note: This method has the logic below.</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">        Check if the plugin is known,</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">        if it is active return it,</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">        otherwise, active it and return it.</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">        It is exception safe, if the plugin</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">        is not known return None.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_name: plugin name.</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">        @return: Plugin instance or None</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">plugin_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">found_plugins</tt><tt class="py-op">:</tt> </tt>
 <a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">plugin_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">active_plugins</tt><tt class="py-op">:</tt> </tt>
 <a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method pyplugin.plugin_manager.PyBasePluginManager.load()=pyplugin.plugin_manager.PyBasePluginManager-class.html#load,Method pyplugin.plugin_manager.PyPluginManager.load()=pyplugin.plugin_manager.PyPluginManager-class.html#load"><a title="pyplugin.plugin_manager.PyBasePluginManager.load
@@ -165,34 +165,34 @@ pyplugin.plugin_manager.PyPluginManager.load" class="py-name" href="#" onclick="
 <a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                 </tt>
 <a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">active_plugins</tt><tt class="py-op">[</tt><tt class="py-name">plugin_name</tt><tt class="py-op">]</tt> </tt>
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
-<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.__contains__"></a><div id="PyBasePluginManager.__contains__-def"><a name="L109"></a><tt class="py-lineno">109</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.__contains__-toggle" onclick="return toggle('PyBasePluginManager.__contains__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__contains__">__contains__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.__contains__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.__contains__-expanded"><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">        Magic method to know whether the </tt> </tt>
-<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    PluginManager contains</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        PluginManager contains</tt> </tt>
 <a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        a plugin with a given name.</tt> </tt>
 <a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    @param plugin_name: plugin name.</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_name: plugin name.</tt> </tt>
 <a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    @return: True or False.</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">        @return: True or False.</tt> </tt>
 <a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">plugin_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">found_plugins</tt> </tt>
 </div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.__iter__"></a><div id="PyBasePluginManager.__iter__-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.__iter__-toggle" onclick="return toggle('PyBasePluginManager.__iter__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__iter__">__iter__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.__iter__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.__iter__-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        Magic method to iterate over all</tt> </tt>
-<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">    the plugin's names.</tt> </tt>
-<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    @return: iterator.</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        the plugin's names.</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">        @return: iterator.</tt> </tt>
 <a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">iter</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">found_plugins</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.__len__"></a><div id="PyBasePluginManager.__len__-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.__len__-toggle" onclick="return toggle('PyBasePluginManager.__len__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#__len__">__len__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.__len__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.__len__-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">        Magic method to know the plugins</tt> </tt>
-<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">    quantity.</tt> </tt>
-<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">    @return: length.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        quantity.</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">        @return: length.</tt> </tt>
 <a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">found_plugins</tt><tt class="py-op">)</tt> </tt>
@@ -200,10 +200,10 @@ pyplugin.plugin_manager.PyPluginManager.load" class="py-name" href="#" onclick="
 <a name="PyBasePluginManager.get_plugin_name"></a><div id="PyBasePluginManager.get_plugin_name-def"><a name="L140"></a><tt class="py-lineno">140</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.get_plugin_name-toggle" onclick="return toggle('PyBasePluginManager.get_plugin_name');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#get_plugin_name">get_plugin_name</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">file_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.get_plugin_name-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.get_plugin_name-expanded"><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"><tt class="py-docstring">        Get the plugin's name from a file name.</tt> </tt>
-<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">    @param file_name: A file object name.</tt> </tt>
-<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">    @return: A plugin name from a file.</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        @param file_name: A file object name.</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"><tt class="py-docstring">        @return: A plugin name from a file.</tt> </tt>
 <a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">plugin_file_name</tt><tt class="py-op">,</tt> <tt class="py-name">file_ext</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">file_name</tt><tt class="py-op">)</tt> </tt>
 <a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">plugin_file_name</tt> </tt>
@@ -211,36 +211,36 @@ pyplugin.plugin_manager.PyPluginManager.load" class="py-name" href="#" onclick="
 <a name="PyBasePluginManager.is_valid_plugin_name"></a><div id="PyBasePluginManager.is_valid_plugin_name-def"><a name="L151"></a><tt class="py-lineno">151</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.is_valid_plugin_name-toggle" onclick="return toggle('PyBasePluginManager.is_valid_plugin_name');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#is_valid_plugin_name">is_valid_plugin_name</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.is_valid_plugin_name-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.is_valid_plugin_name-expanded"><a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"><tt class="py-docstring">        Check if the file plugin_name </tt> </tt>
-<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">    is or not a valid plugin name.</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">        is or not a valid plugin name.</tt> </tt>
 <a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">        @Note: Subclass MUST implement it</tt> </tt>
-<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">    to make behavior.</tt> </tt>
-<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">    @param plugin_name: A plugin name.</tt> </tt>
-<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">    @return: True or False.</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">        to make behavior.</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_name: A plugin name.</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-docstring">        @return: True or False.</tt> </tt>
 <a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">NotImplemented</tt> </tt>
 </div><a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.list_plugin"></a><div id="PyBasePluginManager.list_plugin-def"><a name="L165"></a><tt class="py-lineno">165</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.list_plugin-toggle" onclick="return toggle('PyBasePluginManager.list_plugin');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#list_plugin">list_plugin</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dir_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.list_plugin-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.list_plugin-expanded"><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">        Crawl a directory and collect plugins.</tt> </tt>
-<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">    @Note: This method colaborate with</tt> </tt>
-<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">    is_valid_plugin_name to decide which</tt> </tt>
-<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">    files are valids plugin.</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">        @Note: This method colaborate with</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">        is_valid_plugin_name to decide which</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">        files are valids plugin.</tt> </tt>
 <a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">    @return: List with plugin names.</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">        @return: List with plugin names.</tt> </tt>
 <a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt> <tt class="py-name">f</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">dir_name</tt><tt class="py-op">)</tt> \ </tt>
-<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method pyplugin.plugin_manager.PyBasePluginManager.is_valid_plugin_name()=pyplugin.plugin_manager.PyBasePluginManager-class.html#is_valid_plugin_name,Method pyplugin.plugin_manager.PyPluginManager.is_valid_plugin_name()=pyplugin.plugin_manager.PyPluginManager-class.html#is_valid_plugin_name"><a title="pyplugin.plugin_manager.PyBasePluginManager.is_valid_plugin_name
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method pyplugin.plugin_manager.PyBasePluginManager.is_valid_plugin_name()=pyplugin.plugin_manager.PyBasePluginManager-class.html#is_valid_plugin_name,Method pyplugin.plugin_manager.PyPluginManager.is_valid_plugin_name()=pyplugin.plugin_manager.PyPluginManager-class.html#is_valid_plugin_name"><a title="pyplugin.plugin_manager.PyBasePluginManager.is_valid_plugin_name
 pyplugin.plugin_manager.PyPluginManager.is_valid_plugin_name" class="py-name" href="#" onclick="return doclink('link-8', 'is_valid_plugin_name', 'link-8');">is_valid_plugin_name</a></tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
 </div><a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.is_plugin_active"></a><div id="PyBasePluginManager.is_plugin_active-def"><a name="L178"></a><tt class="py-lineno">178</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.is_plugin_active-toggle" onclick="return toggle('PyBasePluginManager.is_plugin_active');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#is_plugin_active">is_plugin_active</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.is_plugin_active-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.is_plugin_active-expanded"><a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line"><tt class="py-docstring">        Check if a plugin is or not active</tt> </tt>
 <a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring">    @param plugin_name: Plugin name to check.</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_name: Plugin name to check.</tt> </tt>
 <a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"><tt class="py-docstring">        @return: True or False</tt> </tt>
 <a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
@@ -250,11 +250,11 @@ pyplugin.plugin_manager.PyPluginManager.is_valid_plugin_name" class="py-name" hr
 </div><div id="PyBasePluginManager.import_module-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.import_module-expanded"><a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line"><tt class="py-docstring">        Get and instanciate a module from his name.</tt> </tt>
 <a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"><tt class="py-docstring">        This method SHOULD NOT be overwritten.</tt> </tt>
-<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-docstring">    @param plugin_name: A plugin name (file name).</tt> </tt>
-<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-docstring">    @param path_to_file: Absolute path to the plugin.</tt> </tt>
-<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring">    @return: module object.</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_name: A plugin name (file name).</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line"><tt class="py-docstring">        @param path_to_file: Absolute path to the plugin.</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring">        @return: module object.</tt> </tt>
 <a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
 <a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-name">path_to_file</tt> <tt class="py-op">=</tt> <tt class="py-string">"%s.py"</tt> <tt class="py-op">%</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">path_to_file</tt><tt class="py-op">,</tt> <tt class="py-name">plugin_name</tt><tt class="py-op">)</tt> </tt>
 <a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">        <tt class="py-name">module_obj</tt> <tt class="py-op">=</tt> <tt class="py-name">imp</tt><tt class="py-op">.</tt><tt class="py-name">load_source</tt><tt class="py-op">(</tt><tt class="py-name">plugin_name</tt><tt class="py-op">,</tt> <tt class="py-name">path_to_file</tt><tt class="py-op">)</tt> </tt>
@@ -270,17 +270,17 @@ pyplugin.plugin_manager.PyPluginManager.is_valid_plugin_name" class="py-name" hr
 <a name="PyBasePluginManager.attach_services"></a><div id="PyBasePluginManager.attach_services-def"><a name="L209"></a><tt class="py-lineno">209</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.attach_services-toggle" onclick="return toggle('PyBasePluginManager.attach_services');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#attach_services">attach_services</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_obj</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.attach_services-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.attach_services-expanded"><a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"><tt class="py-docstring">        Attach the shared services to a </tt> </tt>
-<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">    plugin's instance.</tt> </tt>
-<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
-<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">    @Note: Services are the way to share</tt> </tt>
-<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">    objects and functions between the app</tt> </tt>
-<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-docstring">    and the plugins.</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"><tt class="py-docstring">        plugin's instance.</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"><tt class="py-docstring">        @Note: Services are the way to share</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"><tt class="py-docstring">        objects and functions between the app</tt> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line"><tt class="py-docstring">        and the plugins.</tt> </tt>
 <a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
 <a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring">        @param plugin_obj: A plugin instance.</tt> </tt>
 <a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
-</div><a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">name</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Module pyplugin.service=pyplugin.service-module.html"><a title="pyplugin.service" class="py-name" href="#" onclick="return doclink('link-9', 'service', 'link-9');">service</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">services</tt><tt class="py-op">:</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">name</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Module pyplugin.service=pyplugin.service-module.html"><a title="pyplugin.service" class="py-name" href="#" onclick="return doclink('link-9', 'service', 'link-9');">service</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">services</tt><tt class="py-op">:</tt> </tt>
 <a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">                <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">plugin_obj</tt><tt class="py-op">,</tt> <tt class="py-name">name</tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name"><a title="pyplugin.service" class="py-name" href="#" onclick="return doclink('link-10', 'service', 'link-9');">service</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
+</div><a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line"> </tt>
 <a name="PyBasePluginManager.load"></a><div id="PyBasePluginManager.load-def"><a name="L223"></a><tt class="py-lineno">223</tt> <a class="py-toggle" href="#" id="PyBasePluginManager.load-toggle" onclick="return toggle('PyBasePluginManager.load');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyBasePluginManager-class.html#load">load</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyBasePluginManager.load-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyBasePluginManager.load-expanded"><a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
 <a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line"><tt class="py-docstring">        This method instanciate the plugin</tt> </tt>
@@ -330,7 +330,7 @@ pyplugin.plugin_manager.PyBasePluginManager.__init__
 pyplugin.plugin_manager.PyPluginManager.__init__
 pyplugin.proxy.Proxy.__init__
 pyplugin.service.ServiceCollection.__init__" class="py-name" href="#" onclick="return doclink('link-14', '__init__', 'link-14');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">dirs</tt><tt class="py-op">,</tt> <tt class="py-name">services</tt><tt class="py-op">,</tt> <tt class="py-name">auto_init</tt><tt class="py-op">=</tt><tt class="py-name">auto_init</tt><tt class="py-op">,</tt>\ </tt>
-<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="pyplugin.loader" class="py-name" href="#" onclick="return doclink('link-15', 'loader', 'link-1');">loader</a></tt><tt class="py-op">=</tt><tt id="link-16" class="py-name"><a title="pyplugin.loader" class="py-name" href="#" onclick="return doclink('link-16', 'loader', 'link-1');">loader</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">                <tt id="link-15" class="py-name"><a title="pyplugin.loader" class="py-name" href="#" onclick="return doclink('link-15', 'loader', 'link-1');">loader</a></tt><tt class="py-op">=</tt><tt id="link-16" class="py-name"><a title="pyplugin.loader" class="py-name" href="#" onclick="return doclink('link-16', 'loader', 'link-1');">loader</a></tt><tt class="py-op">)</tt> </tt>
 </div><a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">         </tt>
 <a name="PyPluginManager.discover"></a><div id="PyPluginManager.discover-def"><a name="L270"></a><tt class="py-lineno">270</tt> <a class="py-toggle" href="#" id="PyPluginManager.discover-toggle" onclick="return toggle('PyPluginManager.discover');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyPluginManager-class.html#discover">discover</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="PyPluginManager.discover-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="PyPluginManager.discover-expanded"><a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
@@ -367,7 +367,7 @@ pyplugin.service.ServiceCollection.__init__" class="py-name" href="#" onclick="r
 <a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="pyplugin.plugin_manager.PyBasePluginManager.load
 pyplugin.plugin_manager.PyPluginManager.load" class="py-name" href="#" onclick="return doclink('link-22', 'load', 'link-7');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">plugin_name</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"> </tt>
-<a name="PyPluginManager.unload"></a><div id="PyPluginManager.unload-def"><a name="L304"></a><tt class="py-lineno">304</tt> <a class="py-toggle" href="#" id="PyPluginManager.unload-toggle" onclick="return toggle('PyPluginManager.unload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyPluginManager-class.html#unload">unload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>   </tt>
+<a name="PyPluginManager.unload"></a><div id="PyPluginManager.unload-def"><a name="L304"></a><tt class="py-lineno">304</tt> <a class="py-toggle" href="#" id="PyPluginManager.unload-toggle" onclick="return toggle('PyPluginManager.unload');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pyplugin.plugin_manager.PyPluginManager-class.html#unload">unload</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">plugin_name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>       </tt>
 </div><a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">dir_name</tt><tt class="py-op">,</tt> <tt class="py-name">plugin_list</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">plugins_by_dir</tt><tt class="py-op">.</tt><tt class="py-name">iteritems</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">plugin_name</tt> <tt class="py-keyword">in</tt> <tt class="py-name">plugin_list</tt><tt class="py-op">:</tt> </tt>
 <a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">                <tt class="py-comment">#set as inactive</tt> </tt>
@@ -412,7 +412,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Sep  5 03:22:59 2010
+    Generated by Epydoc 3.0.1 on Sun Sep  5 18:40:21 2010
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

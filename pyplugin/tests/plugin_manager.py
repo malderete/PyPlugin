@@ -10,6 +10,9 @@ def dummy_function(a, b, *args, **kwds):pass
 class ServiceTest(object):
     def work(self):
 	return True
+    
+    def hola(self):
+        print "holaaaaaaa"
 
 
 class PyPluginManagerTestCase(unittest.TestCase):
@@ -52,12 +55,20 @@ class PyPluginManagerTestCase(unittest.TestCase):
     def test_proxy_service(self): 
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
 	p = pm['plugin_test']
+	print p.work()
+	p.say_hi("martin", "alderete", edad=25)
 	self.assertEqual('Proxy@' in repr(p.service), True)
 
     def test_function_service(self):
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
 	p = pm['plugin_test']
         self.assertEqual('function' in repr(p.connect), True)
+    
+    def test_proxy(self):
+        pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
+        for p in pm:
+            print pm[p].work()
+        
 	
 
 

@@ -9,6 +9,7 @@ pyplugin.plugin_manager	pyplugin.plugin_manager-module.html
 pyplugin.plugin_manager.__package__	pyplugin.plugin_manager-module.html#__package__
 pyplugin.proxy	pyplugin.proxy-module.html
 pyplugin.proxy.proxy_factory	pyplugin.proxy-module.html#proxy_factory
+pyplugin.proxy.proxy_function	pyplugin.proxy-module.html#proxy_function
 pyplugin.proxy.__package__	pyplugin.proxy-module.html#__package__
 pyplugin.service	pyplugin.service-module.html
 pyplugin.service.__package__	pyplugin.service-module.html#__package__
@@ -60,6 +61,7 @@ pyplugin.plugin_manager.PyBasePluginManager.add_plugin_dir	pyplugin.plugin_manag
 pyplugin.plugin_manager.PyBasePluginManager.import_module	pyplugin.plugin_manager.PyBasePluginManager-class.html#import_module
 pyplugin.proxy.Proxy	pyplugin.proxy.Proxy-class.html
 pyplugin.proxy.Proxy.__getattr__	pyplugin.proxy.Proxy-class.html#__getattr__
+pyplugin.proxy.Proxy.__repr__	pyplugin.proxy.Proxy-class.html#__repr__
 pyplugin.proxy.Proxy.__init__	pyplugin.proxy.Proxy-class.html#__init__
 pyplugin.service.ServiceCollection	pyplugin.service.ServiceCollection-class.html
 pyplugin.service.ServiceCollection.__iter__	pyplugin.service.ServiceCollection-class.html#__iter__
