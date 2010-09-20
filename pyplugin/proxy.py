@@ -37,27 +37,35 @@ def proxy_factory(instance):
     @return: Proxy to instance
     '''
     if isinstance(instance, types.FunctionType):
-        return proxy_function(instance)
+        return ProxyToFunction(instance)
 
     return Proxy(instance)
 
 
-def proxy_function(function_to_proxy):
+class ProxyToFunction(object):
     '''
     Proxy implementation, to proxy
     functions object.
     
-    @Note: It is functional implementation
-    of the proxy pattern.
-    
-    @param function_to_proxy: function to proxy.
-    
-    @return: Proxy to function.
+    @author: Martin Alderete ( malderete@gmail.com )
     '''
-    def wrapper(*args, **kwds):
-        return function_to_proxy(*args, **kwds)
-
-    return wrapper
+    def __init__(self, function_to_proxy):
+        self._function = function_to_proxy
+    
+    def __call__(self, *args, **kwds):
+        ret = self._function(*args, **kwds)
+        return ret
+    
+    def __repr__(self):
+        '''
+        This method provides a representation
+        of a proxied object
+        
+        @Note: Usefull for development process.
+        '''
+        func = self._function
+        return '<%s@%s in %s>' % (type(self).__name__, func.__name__,\
+                                    func.__module__)
 
 
 class Proxy(object):
@@ -74,12 +82,12 @@ class Proxy(object):
         Proxy constructor.
         @param instance: instance to be proxied.
         '''
-        self.__instance = instance
+        self._instance = instance
     
     def __getattr__(self, name):
         def wrapper(*args, **kwds):
             #get the proxy method and call it!
-            method = getattr(self.__instance, name)
+            method = getattr(self._instance, name)
             return method(*args, **kwds)
 
         return wrapper
@@ -91,7 +99,7 @@ class Proxy(object):
         
         @Note: Usefull for development process.
         '''
-        klass = self.__instance.__class__
+        klass = self._instance.__class__
         return '<%s@%s in %s>' % (type(self).__name__, klass.__name__,\
                                     klass.__module__)
 

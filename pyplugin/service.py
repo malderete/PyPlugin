@@ -39,8 +39,8 @@ class ServiceCollection(object):
 
         @param proxy_factory: A function to Proxy objects(should not be ovewritten).
         '''
-        self.services = {}
-        self.proxy_factory = proxy_factory
+        self._services = {}
+        self._proxy_factory = proxy_factory
 
     def add(self, name, service):
         '''
@@ -49,8 +49,8 @@ class ServiceCollection(object):
         @param name: service name.
         @param service: instance or function to share.
         '''
-        service = self.proxy_factory(service)
-        self.services[name] = service
+        service = self._proxy_factory(service)
+        self._services[name] = service
 
     def remove(self, service_name):
         '''
@@ -61,14 +61,14 @@ class ServiceCollection(object):
         It is exception safe, before delete the service
         chekc if the service is in the collection.
         '''
-        if service_name in self.services:
-            del self.services[service_name]
+        if service_name in self._services:
+            del self._services[service_name]
 
     def __iter__(self):
         '''
         Magic method to allow iteration
         over the services.
         '''
-        return self.services.iteritems()
+        return self._services.iteritems()
 
 

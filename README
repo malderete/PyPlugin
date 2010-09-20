@@ -39,7 +39,6 @@ Extensible.
 Event Logging.
 Auto discover plugins.
 Load and unload plugins.
-Dependency handling between plugins.
 
 
 Documentation

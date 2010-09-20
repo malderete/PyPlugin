@@ -48,19 +48,19 @@ class PyBasePluginManager(object):
         @param loader: callable object who know how to instanciate a plugin.
         '''
         #plugin importer method
-        self.instance_loader = loader
-        self.services = services
+        self._instance_loader = loader
+        self._services = services
         #discovered plugins by directory
-        self.plugins_by_dir = {}
+        self._plugins_by_dir = {}
         for dir_name in plugin_dirs:
             self.add_plugin_dir(dir_name)
 
         #found plugins
         #example: ["logger", "my_plugin"]
-        self.found_plugins = []
+        self._found_plugins = []
         #active plugins
         #example: {"logger": LoggerIntance, "my_plugin": MyPluginInstance}
-        self.active_plugins = {}
+        self._active_plugins = {}
         if auto_init:
             self.discover()
 
@@ -68,7 +68,7 @@ class PyBasePluginManager(object):
         '''
         Return a list the instances
         '''
-        return self.active_plugins.values()
+        return self._active_plugins.values()
 
     def add_plugin_dir(self, plugin_dir):
         '''
@@ -76,8 +76,8 @@ class PyBasePluginManager(object):
 
         @param plugin_dir: absolute path.
         '''
-        if not plugin_dir in self.plugins_by_dir:
-            self.plugins_by_dir[plugin_dir] = []
+        if not plugin_dir in self._plugins_by_dir:
+            self._plugins_by_dir[plugin_dir] = []
         if not plugin_dir in sys.path:	
             #inser the dir in the sys.path
             sys.path.insert(0, plugin_dir)
@@ -99,11 +99,11 @@ class PyBasePluginManager(object):
         @return: Plugin instance or None
         
         '''
-        if plugin_name in self.found_plugins:
-            if not plugin_name in self.active_plugins:
+        if plugin_name in self._found_plugins:
+            if not plugin_name in self._active_plugins:
                 self.load(plugin_name)
                 
-            return self.active_plugins[plugin_name]
+            return self._active_plugins[plugin_name]
         return None
 
     def __contains__(self, plugin_name):
@@ -116,7 +116,7 @@ class PyBasePluginManager(object):
 
         @return: True or False.
         '''
-        return plugin_name in self.found_plugins
+        return plugin_name in self._found_plugins
 
     def __iter__(self):
         '''
@@ -125,7 +125,7 @@ class PyBasePluginManager(object):
 
         @return: iterator.
         '''
-        return iter(self.found_plugins)
+        return iter(self._found_plugins)
 
     def __len__(self):
         '''
@@ -135,7 +135,7 @@ class PyBasePluginManager(object):
         @return: length.
 
         '''
-        return len(self.found_plugins)
+        return len(self._found_plugins)
 
     def get_plugin_name(self, file_name):
         '''
@@ -148,7 +148,7 @@ class PyBasePluginManager(object):
         plugin_file_name, file_ext = os.path.splitext(file_name)
         return plugin_file_name
 
-    def is_valid_plugin_name(self, plugin_name):
+    def _is_valid_plugin_name(self, plugin_name):
         '''
         Check if the file plugin_name 
         is or not a valid plugin name.
@@ -173,7 +173,7 @@ class PyBasePluginManager(object):
         @return: List with plugin names.
         '''
         return [ f[:-3] for f in os.listdir(dir_name) \
-                if self.is_valid_plugin_name(f) ]
+                if self._is_valid_plugin_name(f) ]
 
     def is_plugin_active(self, plugin_name):
         '''
@@ -183,9 +183,9 @@ class PyBasePluginManager(object):
 
         @return: True or False
         '''
-        return plugin_name in self.active_plugins
+        return plugin_name in self._active_plugins
 
-    def import_module(self, plugin_name, path_to_file):
+    def _import_module(self, plugin_name, path_to_file):
         '''
         Get and instanciate a module from his name.
         This method SHOULD NOT be overwritten.
@@ -206,7 +206,7 @@ class PyBasePluginManager(object):
         '''
         raise NotImplemented
 
-    def attach_services(self, plugin_obj):
+    def _attach_services(self, plugin_obj):
         '''
         Attach the shared services to a 
         plugin's instance.
@@ -217,7 +217,7 @@ class PyBasePluginManager(object):
 
         @param plugin_obj: A plugin instance.
         '''
-        for name, service in self.services:
+        for name, service in self._services:
                 setattr(plugin_obj, name, service)
 
     def load(self, plugin_name):
@@ -258,7 +258,7 @@ class PyPluginManager(PyBasePluginManager):
     This is a concrete plugin manager.
     This class should be a good plugin manager
     for almost all the projects.
-    If you need overwrite you COULD.
+    If you need subclass you are free to do it.
     
     @author: Martin Alderete ( malderete@gmail.com )
     '''
@@ -272,45 +272,45 @@ class PyPluginManager(PyBasePluginManager):
         Search all files in a directory
         and get the valid plugin's names.
         '''
-        for dir_name in self.plugins_by_dir:
+        for dir_name in self._plugins_by_dir:
             for file_name in self.list_plugin(dir_name):
                 plugin_name = self.get_plugin_name(file_name)
-                if not plugin_name in self.found_plugins:
-                    self.found_plugins.append(plugin_name)
-                    self.plugins_by_dir[dir_name].append(plugin_name)
+                if not plugin_name in self._found_plugins:
+                    self._found_plugins.append(plugin_name)
+                    self._plugins_by_dir[dir_name].append(plugin_name)
 
-    def is_valid_plugin_name(self, plugin_name):
+    def _is_valid_plugin_name(self, plugin_name):
         return plugin_name.endswith(".py") and plugin_name != "__init__.py"
 
     def load(self, plugin_name):
-        for dir_name, plugin_list in self.plugins_by_dir.iteritems():
+        for dir_name, plugin_list in self._plugins_by_dir.iteritems():
             if plugin_name in plugin_list:
                 #get the module
-                module_obj = self.import_module(plugin_name, dir_name)
+                module_obj = self._import_module(plugin_name, dir_name)
                 #get the instance
-                plugin_obj = self.instance_loader(module_obj, plugin_name)
+                plugin_obj = self._instance_loader(module_obj, plugin_name)
                 #attach the services
-                self.attach_services(plugin_obj)
-                #call a special method init in the plugin!
+                self._attach_services(plugin_obj)
+                #call a special method *init* in the plugin!
                 plugin_obj.init()
                 #set as active
-                self.active_plugins[plugin_name] = plugin_obj
+                self._active_plugins[plugin_name] = plugin_obj
                 return
 
     def load_all(self):
-        for plugin_name in self.found_plugins:
+        for plugin_name in self._found_plugins:
             self.load(plugin_name)
 
     def unload(self, plugin_name):	
-        for dir_name, plugin_list in self.plugins_by_dir.iteritems():
+        for dir_name, plugin_list in self._plugins_by_dir.iteritems():
             if plugin_name in plugin_list:
                 #set as inactive
-                if plugin_name in self.active_plugins:
-                    del self.active_plugins[plugin_name]
+                if plugin_name in self._active_plugins:
+                    del self._active_plugins[plugin_name]
                     return
 
     def unload_all(self):
-        for plugin_name in self.found_plugins:
+        for plugin_name in self._found_plugins:
             self.unload(plugin_name)
 
 

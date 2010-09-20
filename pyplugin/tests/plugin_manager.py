@@ -5,7 +5,8 @@ from pyplugin.service import ServiceCollection
 
 
 #Some simple services to plugin_test.
-def dummy_function(a, b, *args, **kwds):pass
+def dummy_function(a, b, *args, **kwds):
+	pass
 
 class ServiceTest(object):
     def work(self):
@@ -35,6 +36,7 @@ class PyPluginManagerTestCase(unittest.TestCase):
 
     def test_magic_methods(self):
         pm = PyPluginManager(self.plugin_dirs, self.services)
+	#check the python __*method*__ ;)
 	self.assertEqual('plugin_test' in pm, False)
 	self.assertEqual(pm['plugin_test'], None)
         pm.discover()
@@ -45,32 +47,28 @@ class PyPluginManagerTestCase(unittest.TestCase):
     def test_call_from_plugin(self):
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
         p = pm['plugin_test']
+	#call a plugin method
         self.assertTrue(p.work())
 
     def test_load_one(self):
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
+	#check load
 	pm.load('plugin_test')
 	self.assertEqual(len(pm), 1)
 	
     def test_proxy_service(self): 
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
 	p = pm['plugin_test']
-	print p.work()
+	#emnulate a signal from the app
 	p.say_hi("martin", "alderete", edad=25)
+	#test if the *service* is proxy
 	self.assertEqual('Proxy@' in repr(p.service), True)
 
     def test_function_service(self):
         pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
 	p = pm['plugin_test']
-        self.assertEqual('function' in repr(p.connect), True)
-    
-    def test_proxy(self):
-        pm = PyPluginManager(self.plugin_dirs, self.services, auto_init=True)
-        for p in pm:
-            print pm[p].work()
-        
-	
-
+	#check if the *service function* is proxy
+        self.assertEqual('ProxyToFunction@' in repr(p.connect), True)     
 
 
 if __name__ == '__main__':

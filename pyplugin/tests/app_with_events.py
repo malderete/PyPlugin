@@ -30,6 +30,7 @@ if __name__ == '__main__':
     pm.discover()
     pm.load_all()
     answer = True
+    print 'Valid usernames to emit signals are: (admin, pyplugin)'
     while answer:
         key = str(raw_input("Username: \n"))
         if key == 'admin':
