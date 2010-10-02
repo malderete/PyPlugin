@@ -45,7 +45,12 @@ Documentation
 =============
 
 The documentation is in the source, so you should check in the "doc" directory.
-Developer *remember* run the tool for create documentation *before* commit changes.
+Developer *remember* run the tool for create documentation *after* commit changes.
+
+PyPlugin's documentation is written using epydoc style, so you have to use the command below:
+
+epydoc --html -o docs pyplugin
+
 
 
 Installation
