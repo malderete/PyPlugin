@@ -32,24 +32,24 @@ from pyplugin import loader
 class PyBasePluginManager(object):
     '''
     Base class (abstract)
-    subbclass MUST ovewrite some methods
+    subbclass MUST overwrite some methods
     to work correctly if not NotImplemented
     will be raised.
     
     @author: Martin Alderete ( malderete@gmail.com )
     '''
     
-    def __init__(self, plugin_dirs, services, auto_init=False,
+    def __init__(self, plugin_dirs, services=None, auto_init=False,
                 loader=loader.factory):
         '''
         @param plugin_dirs: list or tuple  with paths to search plugins.
         @param services: ServiceCollection object.
-        @param auto_init: boolean to auto load or nor plugins.
+        @param auto_init: boolean to auto load or not plugins.
         @param loader: callable object who know how to instanciate a plugin.
         '''
         #plugin importer method
         self._instance_loader = loader
-        self._services = services
+        self._services = services and services or []
         #discovered plugins by directory
         self._plugins_by_dir = {}
         for dir_name in plugin_dirs:
@@ -262,9 +262,9 @@ class PyPluginManager(PyBasePluginManager):
     
     @author: Martin Alderete ( malderete@gmail.com )
     '''
-    def __init__(self, dirs, services, auto_init=False, loader=loader.factory):
+    def __init__(self, dirs, services=None, auto_init=False, loader=loader.factory):
         #call parent's __init__
-        super(PyPluginManager, self).__init__(dirs, services, auto_init=auto_init,\
+        super(PyPluginManager, self).__init__(dirs, services=services, auto_init=auto_init,\
                 loader=loader)
         
     def discover(self):
