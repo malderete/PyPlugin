@@ -4,7 +4,10 @@ class plugin_test(plugin.PyBasePlugin):
     def init(self):
 	self.connect('hi', self.say_hi)
 	self.connect('work', self.add)
-	
+
+    def get_info(self):
+	return "Plugin for test process"
+
     def say_hi(self, *args, **kwds):
 	print "Reply from a plugin"
 	print "args: %s" % str(args)

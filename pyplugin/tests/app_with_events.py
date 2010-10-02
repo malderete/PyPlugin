@@ -29,6 +29,12 @@ if __name__ == '__main__':
     pm = PyPluginManager(plugin_dirs, services_to_plugins)
     pm.discover()
     pm.load_all()
+    if len(pm):
+        print "Listing all the plugins:"
+	print "========================"
+	for p in pm:
+            print "    %s - %s" % (p, pm[p].get_info())
+        print "\n"
     answer = True
     print 'Valid usernames to emit signals are: (admin, pyplugin)'
     while answer:
