@@ -21,7 +21,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <<END_LICENSE>>
 '''
 
-
 class PyBasePlugin(object):
     '''
     Base class for every plugin.

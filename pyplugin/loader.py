@@ -21,7 +21,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <<END_LICENSE>>
 '''
 
-
 def factory(module_obj, plugin_name, *args, **kwds):
     '''
     Create a instance from a module object,

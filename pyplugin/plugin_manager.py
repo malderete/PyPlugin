@@ -28,7 +28,6 @@ import imp
 from pyplugin import loader
 
 
-
 class PyBasePluginManager(object):
     '''
     Base class (abstract)
@@ -40,16 +39,18 @@ class PyBasePluginManager(object):
     '''
     
     def __init__(self, plugin_dirs, services=None, auto_init=False,
-                loader=loader.factory):
+                message_box=None, loader=loader.factory):
         '''
         @param plugin_dirs: list or tuple  with paths to search plugins.
         @param services: ServiceCollection object.
         @param auto_init: boolean to auto load or not plugins.
+        @param message_box: MessageBox object which allow change message between plugins.
         @param loader: callable object who know how to instanciate a plugin.
         '''
         #plugin importer method
         self._instance_loader = loader
         self._services = services and services or []
+        self.message_box = message_box
         #discovered plugins by directory
         self._plugins_by_dir = {}
         for dir_name in plugin_dirs:
@@ -137,6 +138,14 @@ class PyBasePluginManager(object):
         '''
         return len(self._found_plugins)
 
+    def __nonzero__(self):
+        '''
+        Magic method to indicate that any
+        instance must pass the if conditional
+        if x:
+        '''
+        return True
+
     def get_plugin_name(self, file_name):
         '''
         Get the plugin's name from a file name.
@@ -214,11 +223,17 @@ class PyBasePluginManager(object):
         @Note: Services are the way to share
         objects and functions between the app
         and the plugins.
+        The MessageBox object is a special case
+        of service because it is provided by the
+        library itself.
 
         @param plugin_obj: A plugin instance.
         '''
+        if self.message_box:
+            setattr(plugin_obj, 'message_box', self.message_box)
+       
         for name, service in self._services:
-                setattr(plugin_obj, name, service)
+            setattr(plugin_obj, name, service)
 
     def load(self, plugin_name):
         '''
@@ -262,10 +277,11 @@ class PyPluginManager(PyBasePluginManager):
     
     @author: Martin Alderete ( malderete@gmail.com )
     '''
-    def __init__(self, dirs, services=None, auto_init=False, loader=loader.factory):
+    def __init__(self, dirs, services=None, auto_init=False, message_box=None,
+		loader=loader.factory):
         #call parent's __init__
         super(PyPluginManager, self).__init__(dirs, services=services, auto_init=auto_init,\
-                loader=loader)
+                message_box=message_box, loader=loader)
         
     def discover(self):
         '''
