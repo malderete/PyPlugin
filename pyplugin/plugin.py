@@ -21,6 +21,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <<END_LICENSE>>
 '''
 
+
 class PyBasePlugin(object):
     '''
     Base class for every plugin.
@@ -36,6 +37,13 @@ class PyBasePlugin(object):
         this method to initialize.
         '''
         raise NotImplemented
+
+    def destroy(self):
+        '''
+        Method called when the plugin
+        is unloaded
+        '''
+        pass
 
     def get_name(self):
         '''

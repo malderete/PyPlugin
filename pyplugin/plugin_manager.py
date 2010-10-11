@@ -25,6 +25,7 @@ import os
 import sys
 import imp
 
+#pyplugin imports
 from pyplugin import loader
 
 
@@ -322,11 +323,11 @@ class PyPluginManager(PyBasePluginManager):
             if plugin_name in plugin_list:
                 #set as inactive
                 if plugin_name in self._active_plugins:
+                    self._active_plugins.destroy()
                     del self._active_plugins[plugin_name]
                     return
 
     def unload_all(self):
         for plugin_name in self._found_plugins:
             self.unload(plugin_name)
-
 
